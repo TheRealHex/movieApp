@@ -1,2 +1,2 @@
 # movieApp
-Movie App project using flutter.
+Movie recommendation app project using flutter.
