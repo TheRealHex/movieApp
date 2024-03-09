@@ -46,22 +46,20 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               titleContent('Trending Movies'),
               const SizedBox(height: 32),
-              SizedBox(
-                child: FutureBuilder(
-                    future: trendingMovies,
-                    builder: (context, snapshot) {
-                      if (snapshot.hasError) {
-                        return Center(child: Text(snapshot.error.toString()));
-                      } else if (snapshot.hasData) {
-                        // final data = snapshot.data;
-                        return TrendingSlider(snapshot: snapshot);
-                      } else {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                    }),
-              ),
+              FutureBuilder(
+                  future: trendingMovies,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return Center(child: Text(snapshot.error.toString()));
+                    } else if (snapshot.hasData) {
+                      // final data = snapshot.data;
+                      return TrendingSlider(snapshot: snapshot);
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  }),
               const SizedBox(height: 32),
               titleContent('Top Rated Movies'),
               SizedBox(
